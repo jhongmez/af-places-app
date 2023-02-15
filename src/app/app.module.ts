@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewPlaceModule } from './components/new-place/new-place.module';
+import { ListPlaceModule } from './components/list-place/list-place.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +17,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NewPlaceModule,
+    ListPlaceModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())
   ],
