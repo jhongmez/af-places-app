@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { NewPlaceModule } from './components/new-place/new-place.module';
 import { ListPlaceModule } from './components/list-place/list-place.module';
 
@@ -20,7 +19,7 @@ import { ListPlaceModule } from './components/list-place/list-place.module';
     NewPlaceModule,
     ListPlaceModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,6 +10,8 @@ import { PlacesService } from 'src/app/services/places.service';
 export class NewPlaceComponent implements OnInit {
 
 	public formPlace!: FormGroup;
+	public imageSrc!: string;
+	public imageSelected!: string;
 
 	constructor(
 		private formBuilder: FormBuilder,
@@ -29,6 +31,15 @@ export class NewPlaceComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.builderForm();
+	}
+
+	showPreview(event: any) {
+		if(event.target.files && event.target.files[0]) {
+			const reader = new FileReader();
+			reader.onload = (e: any) => this.imageSrc = e.target.result;
+			reader.readAsDataURL(event.target.files[0]);
+			this.imageSelected = event.target.files[0];
+		}
 	}
 	
 	// * Envío del formulario
